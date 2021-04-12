@@ -64,7 +64,7 @@ while t0.is_alive():
     # запуск цикла проверки для всех файлов
     for current_file in list_of_new_files:
         # проверка, является ли файл новым
-        if current_file not in list_of_old_files:
+        if current_file not in list_of_old_files and os.path.isfile(current_file):
             # запись имени файла, его расширения и даты создания в лог, если файл является новым
             filename, file_extension = os.path.splitext(current_file)
             date_of_creation_sec = os.stat(current_file).st_ctime
